@@ -86,6 +86,41 @@
     .nav-cta { background: var(--teal-grad) !important; color: #ffffff !important; padding: 0.6rem 1.4rem; border-radius: 8px; font-weight: 700 !important; box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2); transition: transform 0.2s, box-shadow 0.2s;}
     .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(13, 148, 136, 0.3); }
 
+    /* Dropdown Nav */
+    .nav-dropdown { position: relative; }
+    .nav-dropdown > a { display: flex; align-items: center; gap: 0.35rem; }
+    .nav-dropdown > a::after { content: '▾'; font-size: 0.7rem; transition: transform 0.2s; }
+    .nav-dropdown:hover > a::after { transform: rotate(180deg); }
+    .dropdown-menu {
+      position: absolute; top: calc(100% + 12px); left: 50%; transform: translateX(-50%);
+      background: #ffffff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 0.6rem; min-width: 220px; box-shadow: 0 20px 40px rgba(15,23,42,0.1);
+      opacity: 0; visibility: hidden; pointer-events: none;
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      transform: translateX(-50%) translateY(-6px);
+    }
+    .nav-dropdown:hover .dropdown-menu {
+      opacity: 1; visibility: visible; pointer-events: all;
+      transform: translateX(-50%) translateY(0);
+    }
+    .dropdown-menu::before {
+      content: ''; position: absolute; top: -6px; left: 50%; transform: translateX(-50%);
+      width: 12px; height: 12px; background: #fff; border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border); rotate: 45deg;
+    }
+    .dd-item {
+      display: flex; align-items: center; gap: 0.9rem; padding: 0.75rem 1rem;
+      border-radius: 10px; text-decoration: none; color: var(--navy); font-weight: 600;
+      font-size: 0.88rem; transition: background 0.2s, color 0.2s; white-space: nowrap;
+    }
+    .dd-item:hover { background: var(--teal-light); color: var(--teal); }
+    .dd-icon { width: 34px; height: 34px; background: var(--teal-light); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; border: 1px solid rgba(13,148,136,0.1); }
+    .dd-text { display: flex; flex-direction: column; }
+    .dd-name { font-weight: 700; color: var(--navy); font-size: 0.88rem; }
+    .dd-sub { font-size: 0.72rem; color: var(--text3); font-weight: 500; margin-top: 1px; }
+    .dd-item:hover .dd-name { color: var(--teal); }
+    .dd-divider { height: 1px; background: var(--border); margin: 0.4rem 0; }
+
     .hero {
       min-height: 100vh; display: flex; align-items: center;
       padding: 9rem 5% 5rem;
@@ -323,6 +358,26 @@
     <li><a href="#layanan">Layanan</a></li>
     <li><a href="#harga">Harga</a></li>
     <li><a href="#keunggulan">Keunggulan</a></li>
+    <li class="nav-dropdown">
+      <a href="#">Produk</a>
+      <div class="dropdown-menu">
+        <a class="dd-item" href="tools-pajak.html">
+          <div class="dd-icon">🛠️</div>
+          <div class="dd-text">
+            <span class="dd-name">Tools Pajak</span>
+            <span class="dd-sub">Aplikasi desktop offline · Rp 500K</span>
+          </div>
+        </a>
+        <div class="dd-divider"></div>
+        <a class="dd-item" href="coretax-downloader.html">
+          <div class="dd-icon">⬇️</div>
+          <div class="dd-text">
+            <span class="dd-name">Coretax Downloader</span>
+            <span class="dd-sub">Bot otomasi download · Rp 500K</span>
+          </div>
+        </a>
+      </div>
+    </li>
     <li><a href="#kontak" class="nav-cta">Konsultasi Gratis</a></li>
   </ul>
 </nav>
