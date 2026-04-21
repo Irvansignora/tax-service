@@ -1,0 +1,9 @@
+# robots.txt — Iranza Tax Consultant
+# https://tax-service.iranza.com
+
+# Izinkan semua crawler (Google, Bing, dll)
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://tax-service.iranza.com/sitemap.xml
